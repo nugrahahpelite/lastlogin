@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MSBUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="documentname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="extension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="size" Type="Double" />
+    <Property Name="uploaddate" Type="DateTime" Precision="0" />
+    <Property Name="senddate" Type="DateTime" Precision="0" />
+    <Property Name="sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uploader" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sendstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="MSBUEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="documents" EntityType="Self.document" />
+    <EntitySet Name="users" EntityType="Self.user" />
+  </EntityContainer>
+</Schema>

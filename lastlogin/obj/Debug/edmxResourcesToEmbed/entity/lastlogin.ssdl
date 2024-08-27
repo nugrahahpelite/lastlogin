@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MSBUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="documentname" Type="nvarchar(max)" />
+    <Property Name="extension" Type="nvarchar" MaxLength="50" />
+    <Property Name="size" Type="float" />
+    <Property Name="uploaddate" Type="smalldatetime" />
+    <Property Name="senddate" Type="smalldatetime" />
+    <Property Name="sender" Type="nvarchar" MaxLength="50" />
+    <Property Name="uploader" Type="nvarchar" MaxLength="50" />
+    <Property Name="sendstatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="MSBUModelStoreContainer">
+    <EntitySet Name="document" EntityType="Self.document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

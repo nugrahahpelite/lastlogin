@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MSBUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="documentname" Type="nvarchar(max)" />
+          <Property Name="extension" Type="nvarchar" MaxLength="50" />
+          <Property Name="size" Type="float" />
+          <Property Name="uploaddate" Type="smalldatetime" />
+          <Property Name="senddate" Type="smalldatetime" />
+          <Property Name="sender" Type="nvarchar" MaxLength="50" />
+          <Property Name="uploader" Type="nvarchar" MaxLength="50" />
+          <Property Name="sendstatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="MSBUModelStoreContainer">
+          <EntitySet Name="document" EntityType="Self.document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MSBUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="documentname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="extension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="Double" />
+          <Property Name="uploaddate" Type="DateTime" Precision="0" />
+          <Property Name="senddate" Type="DateTime" Precision="0" />
+          <Property Name="sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uploader" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sendstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="MSBUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="documents" EntityType="Self.document" />
+          <EntitySet Name="users" EntityType="Self.user" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MSBUModelStoreContainer" CdmEntityContainer="MSBUEntities">
+          <EntitySetMapping Name="documents">
+            <EntityTypeMapping TypeName="MSBUModel.document">
+              <MappingFragment StoreEntitySet="document">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="documentname" ColumnName="documentname" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="uploaddate" ColumnName="uploaddate" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="uploader" ColumnName="uploader" />
+                <ScalarProperty Name="sendstatus" ColumnName="sendstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="MSBUModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

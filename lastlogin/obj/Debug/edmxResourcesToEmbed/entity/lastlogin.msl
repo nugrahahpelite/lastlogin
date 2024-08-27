@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MSBUModelStoreContainer" CdmEntityContainer="MSBUEntities">
+    <EntitySetMapping Name="documents">
+      <EntityTypeMapping TypeName="MSBUModel.document">
+        <MappingFragment StoreEntitySet="document">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="documentname" ColumnName="documentname" />
+          <ScalarProperty Name="extension" ColumnName="extension" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="uploaddate" ColumnName="uploaddate" />
+          <ScalarProperty Name="senddate" ColumnName="senddate" />
+          <ScalarProperty Name="sender" ColumnName="sender" />
+          <ScalarProperty Name="uploader" ColumnName="uploader" />
+          <ScalarProperty Name="sendstatus" ColumnName="sendstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="MSBUModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
